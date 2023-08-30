@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <body>
+        
+   
+    <style>
+       body{
+    margin-top: 4%;
+    margin-left: 5%;
+    font-family: 'Times New Roman', Times, serif;
+ background-color: #f5cf89;
+}
+.add{
+    background-color: #2c832c;
+    border-color: #000000;
+    border-radius: 25px;
+    color: #ffffff;
+}
+.adc{
+    background-color: #b8b8b8;
+    border-color: #000000;
+    border-radius: 25px;
+    color: #ffffff;
+}
+    </style>
+
+
+    <h1> lista de livros</h1>
+
+    <br>
+
+    <h2>adicionar livro a lista</h2>
+
+    <input type="text" id="item">
+
+<button class="add" id="add" onclick="item()">Adicionar</button>
+
+<button class="adc" id="adc" onclick="mostrarlista()">mostrar a lista</button>
+<div id="output"></div>
+    <script>
+
+let estoque = [];
+        let outputDiv = document.getElementById("output");
+
+        function item() {
+            let novoItem = document.getElementById("item").value;
+            estoque.push(novoItem);
+            outputDiv.innerHTML = "Item adicionado ao estoque: " + novoItem;
+        }
+        function mostrarlista() {
+            if (estoque.length === 0) {
+                outputDiv.innerHTML = "O estoque está vazio.";
+            } else {
+                let listaItens = "livros no estoque:<br>";
+                for (let i = 0; i < estoque.length; i++) {
+                    listaItens += (i + 1) + ". " + estoque[i] + "<br>";
+                }
+                outputDiv.innerHTML = listaItens;
+            }
+        }
+    </script>
+</body>
+</html>
